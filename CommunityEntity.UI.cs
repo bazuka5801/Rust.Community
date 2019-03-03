@@ -115,6 +115,12 @@ public partial class CommunityEntity
                     c.font = FileSystem.Load<Font>( "Assets/Content/UI/Fonts/" + obj.GetString( "font", "RobotoCondensed-Bold.ttf" ) );
                     c.alignment = (TextAnchor)System.Enum.Parse( typeof( TextAnchor ), obj.GetString( "align", "UpperLeft" ) );
                     c.color = ColorEx.Parse( obj.GetString( "color", "1.0 1.0 1.0 1.0" ) );
+
+                    if ( obj.ContainsKey( "raycastTarget" ) )
+                    {
+                        c.raycastTarget = obj.GetBoolean( "raycastTarget", true );
+                    }
+
                     GraphicComponentCreated( c, obj );
                     break;
                 }
@@ -126,6 +132,11 @@ public partial class CommunityEntity
                     c.material = FileSystem.Load<Material>( obj.GetString( "material", "Assets/Icons/IconMaterial.mat" ) );
                     c.color = ColorEx.Parse( obj.GetString( "color", "1.0 1.0 1.0 1.0" ) );
                     c.type = (UnityEngine.UI.Image.Type)System.Enum.Parse( typeof( UnityEngine.UI.Image.Type ), obj.GetString( "imagetype", "Simple" ) );
+
+                    if ( obj.ContainsKey( "raycastTarget" ) )
+                    {
+                        c.raycastTarget = obj.GetBoolean( "raycastTarget", true );
+                    }
 
                     if ( obj.ContainsKey( "png" ) )
                     {
@@ -146,6 +157,11 @@ public partial class CommunityEntity
                     if ( obj.ContainsKey( "material" ) )
                     {
                         c.material = FileSystem.Load<Material>( obj.GetString( "material" ) );
+                    }
+
+                    if ( obj.ContainsKey( "raycastTarget" ) )
+                    {
+                        c.raycastTarget = obj.GetBoolean( "raycastTarget", true );
                     }
 
                     if ( obj.ContainsKey( "url" ) )
